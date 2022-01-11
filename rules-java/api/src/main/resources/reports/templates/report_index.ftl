@@ -33,18 +33,19 @@
 <#include "include/page-init.ftl">
 
 <section class="pf-c-page__main-section pf-m-light">
+    <div class="pf-c-content">
+        <h1>
+            ${reportModel.reportName}
+            <#if reportModel.projectModel??>
+                :&nbsp;${reportModel.projectModel.rootFileModel.applicationName}
+            </#if>
+        </h1>
+        <p>${reportModel.description}</p>
+    </div>
+</section>
+
+<section class="pf-c-page__main-section">
     <div class="container-fluid" role="main">
-
-        <div class="row">
-            <div class="page-header page-header-no-border">
-                <h1>
-                    <div class="main">${reportModel.reportName}
-                    <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement=right title="${reportModel.description}"></i></div>
-                    <div class="path">${reportModel.projectModel.rootFileModel.applicationName}</div>
-                </h1>
-            </div>
-        </div>
-
         <div class="row container-fluid col-md-12 summaryInfo">
             <div class="panel panel-primary col-md-12">
                 <div class="row col-md-12 report-index-row">

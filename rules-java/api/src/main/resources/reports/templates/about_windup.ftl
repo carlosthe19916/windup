@@ -27,15 +27,13 @@
 <#include "include/page-init.ftl">
 
 <section class="pf-c-page__main-section pf-m-light">
-    <div class="container-fluid" role="main">
-        <div class="row">
-            <div class="page-header page-header-no-border">
-                <h1>
-                    <div class="main">About</div>
-                </h1>
-            </div>
-        </div>
+    <div class="pf-c-content">
+        <h1>About</h1>
+    </div>
+</section>
 
+<section class="pf-c-page__main-section">
+    <div class="container-fluid" role="main">
         <div class="row">
             <div class="container-fluid theme-showcase" role="main">
                 <div class="panel panel-primary">

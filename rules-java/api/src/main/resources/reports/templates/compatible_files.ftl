@@ -87,17 +87,16 @@
 <#include "include/page-init.ftl">
 
 <section class="pf-c-page__main-section pf-m-light">
-    <div class="container-fluid" role="main">
-        <div class="row">
-            <div class="page-header page-header-no-border">
-                <h1>
-                    <div class="main">Compatible Files Report
-                    <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement=right title="Files in this report are believed to be compatible with the selected target platform. However, it is possible that this report contains incompatible files that were not identified by any ${getWindupBrandName()} rules. It is recommended that these files be reviewed manually for any issues."></i></div>
-                    <div class="path">${reportModel.projectModel.rootFileModel.applicationName}</div>
-                </h1>
-            </div>
-        </div>
+    <div class="pf-c-content">
+        <h1>
+            ${reportModel.reportName}:&nbsp;${reportModel.projectModel.rootFileModel.applicationName}
+        </h1>
+        <p>Files in this report are believed to be compatible with the selected target platform. However, it is possible that this report contains incompatible files that were not identified by any ${getWindupBrandName()} rules. It is recommended that these files be reviewed manually for any issues.</p>
+    </div>
+</section>
 
+<section class="pf-c-page__main-section">
+    <div class="container-fluid" role="main">
         <div class="row">
             <div class="container-fluid">
                 <div class="alert alert-info">

@@ -22,17 +22,19 @@
 <#include "include/page-init.ftl">
 
 <section class="pf-c-page__main-section pf-m-light">
-    <div class="container-fluid" role="main">
-        <div class="row">
-            <div class="page-header page-header-no-border">
-                <h1>
-                    <div class="main">JBPM Process Report
-                    <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement=right title="The JBPM process report shows the basic characteristics of JBPM processes found in the application, such like count of nodes, states, tasks, decisions, subprocesses, etc. Also lists the action handlers and decision handlers."></i></div>
-                    <div class="path">${reportModel.projectModel.rootFileModel.applicationName}</div>
-                </h1>
-            </div>
-        </div>
+    <div class="pf-c-content">
+        <h1>
+            JBPM Process Report
+            <#if reportModel.projectModel??>
+                :&nbsp;${reportModel.projectModel.rootFileModel.applicationName}
+            </#if>
+        </h1>
+        <p>The JBPM process report shows the basic characteristics of JBPM processes found in the application, such like count of nodes, states, tasks, decisions, subprocesses, etc. Also lists the action handlers and decision handlers.</p>
+    </div>
+</section>
 
+<section class="pf-c-page__main-section">
+    <div class="container-fluid" role="main">
         <#if iterableHasContent(reportModel.relatedResources.processes)>
             <#list reportModel.relatedResources.processes as process>
 

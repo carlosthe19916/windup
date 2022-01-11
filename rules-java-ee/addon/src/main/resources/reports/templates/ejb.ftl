@@ -76,17 +76,19 @@
 <#include "include/page-init.ftl">
 
 <section class="pf-c-page__main-section pf-m-light">
-    <div class="container-fluid" role="main">
-        <div class="row">
-            <div class="page-header page-header-no-border">
-                <h1>
-                    <div class="main">EJB Report
-                    <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement=right title="This report lists the Java EE EJB beans with their JNDI address - stateless and statefull beans, message driven beans, and entity beans."></i></div>
-                    <div class="path">${reportModel.projectModel.rootFileModel.applicationName}</div>
-                </h1>
-            </div>
-        </div>
+    <div class="pf-c-content">
+        <h1>
+            EJB Report
+            <#if reportModel.projectModel??>
+                :&nbsp;${reportModel.projectModel.rootFileModel.applicationName}
+            </#if>
+        </h1>
+        <p>This report lists the Java EE EJB beans with their JNDI address - stateless and statefull beans, message driven beans, and entity beans.</p>
+    </div>
+</section>
 
+<section class="pf-c-page__main-section">
+    <div class="container-fluid" role="main">
         <div class="row">
             <div class="container-fluid theme-showcase" role="main">
 

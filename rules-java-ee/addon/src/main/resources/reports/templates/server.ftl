@@ -20,17 +20,19 @@
 <#include "include/page-init.ftl">
 
 <section class="pf-c-page__main-section pf-m-light">
-    <div class="container-fluid" role="main">
-        <div class="row">
-            <div class="page-header page-header-no-border">
-                <h1>
-                    <div class="main">Server Resources
-                    <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement=right title="This reports lists the resources of the application that are supposed to be used by the server, such as datasources, JMS destinations, JMS connection factories, JMS connection factory list, and thread pools."></i></div>
-                    <div class="path">${reportModel.projectModel.rootFileModel.applicationName}</div>
-                </h1>
-            </div>
-        </div>
+    <div class="pf-c-content">
+        <h1>
+            Server Resources
+            <#if reportModel.projectModel??>
+                :&nbsp;${reportModel.projectModel.rootFileModel.applicationName}
+            </#if>
+        </h1>
+        <p>This reports lists the resources of the application that are supposed to be used by the server, such as datasources, JMS destinations, JMS connection factories, JMS connection factory list, and thread pools.</p>
+    </div>
+</section>
 
+<section class="pf-c-page__main-section">
+    <div class="container-fluid" role="main">
         <div class="row">
             <div class="container-fluid theme-showcase" role="main">
 

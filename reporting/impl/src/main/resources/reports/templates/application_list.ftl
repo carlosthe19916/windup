@@ -160,16 +160,14 @@
 <#include "include/page-init.ftl">
 
 <section class="pf-c-page__main-section pf-m-light">
-    <div class="container-fluid" role="main">
-        <div class="row">
-            <div class="page-header page-header-no-border">
-                <h1>
-                    <div class="main">Application List
-                    <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement=right title="This report lists all analyzed applications. Select an individual application to show more details."></i></div>
-                </h1>
-            </div>
-        </div>
+    <div class="pf-c-content">
+        <h1>Application List</h1>
+        <p>This report lists all analyzed applications. Select an individual application to show more details.</p>
+    </div>
+</section>
 
+<section class="pf-c-page__main-section">
+    <div class="container-fluid" role="main">
         <#include "include/filtering_bar.ftl">
 
         <!-- Apps -->

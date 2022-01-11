@@ -20,17 +20,19 @@
 <#include "include/page-init.ftl">
 
 <section class="pf-c-page__main-section pf-m-light">
-    <div class="container-fluid" role="main">
-        <div class="row">
-            <div class="page-header page-header-no-border">
-                <h1>
-                    <div class="main">JPA Report
-                    <i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement=right title="The JPA report lists the JPA entities, named JPA queries, and the JPA configuration found in the application."></i></div>
-                    <div class="path">${reportModel.projectModel.rootFileModel.applicationName}</div>
-                </h1>
-            </div>
-        </div>
+    <div class="pf-c-content">
+        <h1>
+            JPA Report
+            <#if reportModel.projectModel??>
+                :&nbsp;${reportModel.projectModel.rootFileModel.applicationName}
+            </#if>
+        </h1>
+        <p>The JPA report lists the JPA entities, named JPA queries, and the JPA configuration found in the application.</p>
+    </div>
+</section>
 
+<section class="pf-c-page__main-section">
+    <div class="container-fluid" role="main">
         <div class="row">
             <div class="container-fluid theme-showcase" role="main">
 
