@@ -20,6 +20,7 @@
             ${reportModel.reportName}
         </title>
         <meta name="viewport" content="width=device-width">
+        <link href="resources/css/patternfly/patternfly.min.css" rel="stylesheet"/>
         <link rel="stylesheet" href="resources/css/topology-graph.css"/>
         <script src="resources/js/angular.min.js"></script>
         <script src="resources/js/d3.v3.min.js" type="text/javascript"></script>
@@ -33,18 +34,11 @@
         <link href="resources/img/mta-icon.png" rel="shortcut icon" type="image/x-icon"/>
     </head>
     <body role="document" class="application-graph" ng-app="appDependencies">
-        <!-- Navbar -->
-        <div id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
-            <div class="wu-navbar-header navbar-header">
-                <#include "include/navheader.ftl">
-            </div>
-            <div class="navbar-collapse collapse navbar-responsive-collapse">
-                <#include "include/navbar.ftl">
-            </div><!-- /.nav-collapse -->
-        </div>
-        <!-- / Navbar -->
 
-        <div class="container-fluid" role="main">
+    <#include "include/page-init.ftl">
+
+    <section class="pf-c-page__main-section pf-m-light">
+    <div class="container-fluid" role="main">
             <div class="row">
                 <div class="page-header page-header-no-border">
                     <h1>
@@ -130,7 +124,12 @@
                     </#if>
                 </defs>
             </svg>
-        <script src="resources/js/app-dependency-graph.js"></script>
+        </div>
+    </section>
+
+    <#include "include/page-end.ftl">
+
+    <script src="resources/js/app-dependency-graph.js"></script>
         <#if reportModel.projectModel??>
         <script src="data/${sha1Hex(reportModel.projectModel.rootFileModel)}_app_dependencies_graph.js"></script>
         <#else>

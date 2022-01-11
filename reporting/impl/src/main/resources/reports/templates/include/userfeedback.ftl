@@ -1,6 +1,12 @@
-<li>
-    <a href="#" class="feedback-nav-btn jiraFeedbackTrigger"><i class="glyphicon glyphicon-comment"></i> Send Feedback </a>
-</li>
+<button aria-disabled="false"
+        aria-label="Help actions"
+        class="pf-c-button pf-m-plain jiraFeedbackTrigger"
+        type="button"
+        data-ouia-component-type="PF4/Button"
+        data-ouia-safe="true"
+        data-ouia-component-id="OUIA-Generated-Button-plain-2">
+    <i class="fas fa-comments" aria-hidden="true"></i>
+</button>
 
 <#if !NAVBAR_JS_ALREADY_DISPLAYED??>
     <#assign NAVBAR_JS_ALREADY_DISPLAYED = 1>

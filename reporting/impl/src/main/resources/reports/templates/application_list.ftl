@@ -108,8 +108,9 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>${reportModel.reportName}</title>
+    <link href="reports/resources/css/patternfly/patternfly.min.css" rel="stylesheet"/>
     <link href="reports/resources/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="reports/resources/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="reports/resources/css/font-awesome.min.css" rel="stylesheet"/>
     <link href="reports/resources/css/windup.css" rel="stylesheet" media="screen"/>
     <link href="reports/resources/img/mta-icon.png" rel="shortcut icon" type="image/x-icon"/>
     <style>
@@ -156,20 +157,9 @@
 </head>
 <body role="document" class="viewAppList" style="margin: auto;">
 
-    <!-- Navbar -->
-    <div id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
-        <div class="wu-navbar-header navbar-header">
-            <#include "include/navheader.ftl">
-        </div>
+<#include "include/page-init.ftl">
 
-        <#if applicationReportIndexModel??>
-            <div class="navbar-collapse collapse navbar-responsive-collapse">
-                <#include "include/navbar.ftl">
-            </div><!-- /.nav-collapse -->
-        </#if>
-    </div>
-    <!-- / Navbar -->
-
+<section class="pf-c-page__main-section pf-m-light">
     <div class="container-fluid" role="main">
         <div class="row">
             <div class="page-header page-header-no-border">
@@ -248,6 +238,9 @@
         <#include "include/timestamp.ftl">
 
     </div> <!-- /.container-fluid -->
+</section>
+
+<#include "include/page-end.ftl">
 
     <script src="reports/resources/js/windup-utils.js"></script>
     <script type="text/javascript">

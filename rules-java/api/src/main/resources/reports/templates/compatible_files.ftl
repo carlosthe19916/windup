@@ -73,7 +73,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>${reportModel.projectModel.name} - Application Report</title>
-    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/css/patternfly/patternfly.min.css" rel="stylesheet"/>
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="resources/css/font-awesome.min.css" rel="stylesheet" />
     <link href="resources/css/windup.css" rel="stylesheet" media="screen">
     <link href="resources/css/windup.java.css" rel="stylesheet" media="screen">
@@ -83,18 +84,9 @@
 </head>
 <body role="document">
 
-    <!-- Navbar -->
-    <div id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
-        <div class="wu-navbar-header navbar-header">
-            <#include "include/navheader.ftl">
-        </div>
+<#include "include/page-init.ftl">
 
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-            <#include "include/navbar.ftl">
-        </div><!-- /.nav-collapse -->
-    </div>
-    <!-- / Navbar -->
-
+<section class="pf-c-page__main-section pf-m-light">
     <div class="container-fluid" role="main">
         <div class="row">
             <div class="page-header page-header-no-border">
@@ -125,6 +117,9 @@
 
         <#include "include/timestamp.ftl">
     </div>
+</section>
+
+<#include "include/page-end.ftl">
 
 
 
