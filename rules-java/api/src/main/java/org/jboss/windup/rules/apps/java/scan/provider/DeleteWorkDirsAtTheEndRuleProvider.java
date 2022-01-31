@@ -31,7 +31,7 @@ import org.ocpsoft.rewrite.context.EvaluationContext;
 @RuleMetadata(
     afterIDs = "CreateRuleProviderReportRuleProvider",
     // I don't want to create a dependency: before = {ExecutionTimeReportRuleProvider.class},
-    description = "Deletes the temporary data " + Util.WINDUP_BRAND_NAME_ACRONYM + " analyzes: the unzipped archives, and the graph data."
+    description = "Deletes the temporary data CLI analyzes: the unzipped archives, and the graph data."
             + " Use --" + KeepWorkDirsOption.NAME + " to keep them.",
     phase = PostFinalizePhase.class
 )

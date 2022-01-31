@@ -9,10 +9,10 @@ import java.util.Iterator;
  */
 public class Util
 {
-    public static final String WINDUP_BRAND_NAME_LONG = "Migration Toolkit for Applications by Red Hat";
-    public static final String WINDUP_BRAND_NAME_ACRONYM = "MTA";
-    public static final String WINDUP_CLI_NAME = "mta-cli";
-    public static final String NL = System.lineSeparator();
+    public static String WINDUP_BRAND_NAME_LONG = "Migration Toolkit for Applications by Red Hat";
+    public static String WINDUP_BRAND_NAME_ACRONYM = "MTA";
+    public static String WINDUP_CLI_NAME = "mta-cli";
+    public static String NL = System.lineSeparator();
 
     /**
      * Returns a single item from the Iterator.

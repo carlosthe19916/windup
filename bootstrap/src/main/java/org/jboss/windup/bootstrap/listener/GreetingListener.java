@@ -15,6 +15,7 @@ import org.jboss.forge.furnace.Furnace;
 import org.jboss.forge.furnace.exception.ContainerException;
 import org.jboss.forge.furnace.spi.ContainerLifecycleListener;
 import org.jboss.windup.bootstrap.Bootstrap;
+import org.jboss.windup.util.Util;
 
 /**
  * @author <a href="mailto:lincolnbaxter@gmail.com">Lincoln Baxter, III</a>
@@ -34,7 +35,7 @@ public class GreetingListener implements ContainerLifecycleListener
         PrintWriter out = new PrintWriter(sw, true);
         out.println();
         out.println("");
-        out.print("Migration Toolkit for Applications (MTA) CLI, version [ ");
+        out.print(Util.WINDUP_BRAND_NAME_LONG + " CLI, version [ ");
         out.print(Bootstrap.getVersion());
         out.print(" ] - by Red Hat, Inc. [ https://developers.redhat.com/products/mta/overview/ ]");
         out.println();
