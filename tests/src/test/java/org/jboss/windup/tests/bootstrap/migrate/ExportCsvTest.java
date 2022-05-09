@@ -45,6 +45,31 @@ public class ExportCsvTest extends AbstractBootstrapTestWithRules {
         assertTrue(records.stream().allMatch(this::isRowSorted));
     }
 
+    @Test
+    public void exportCsv_onlineModeAndRuleNotXsdCompliant() throws IOException {
+        bootstrap("--input", "../test-files/Windup1x-javaee-example-tiny.war",
+                "--output", tmp.getRoot().getAbsolutePath(),
+                "--target", "eap7",
+                "--exportCSV",
+                "--online",
+                "--userRulesDirectory", "src/test/xml/nonXsdCompliant.windup.xml");
+
+        File csv = new File(tmp.getRoot(), "Windup1x_javaee_example_tiny_war.csv");
+        assertTrue(csv.exists());
+
+        String csvContent = new String(Files.readAllBytes(csv.toPath()), "UTF-8");
+        assertTrue(csvContent.contains("Windup1x-javaee-example-tiny.war"));
+
+        File allIssuesCsv = new File(tmp.getRoot(), "AllIssues.csv");
+        assertTrue(allIssuesCsv.exists());
+
+        File appTagsCsv = new File(tmp.getRoot(), "ApplicationFileTechnologies.csv");
+        assertTrue(appTagsCsv.exists());
+
+        List<List<String>> records = readCSVFile(appTagsCsv);
+        assertTrue(records.stream().allMatch(this::isRowSorted));
+    }
+
     private List<List<String>> readCSVFile(File csvFile) throws IOException
     {
         List<List<String>> rows = new ArrayList<>();
