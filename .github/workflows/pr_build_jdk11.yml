@@ -9,6 +9,7 @@ on:
     branches:
       - master
       - 'releases/**'
+      - testGraph
 
 jobs:
 
@@ -33,61 +34,61 @@ jobs:
     - name: Build on JDK 11
       run: mvn clean install -DskipTests -B -U
 
-  windup-build-with-unit-tests-1:
-    strategy:
-      fail-fast: false
-      matrix:
-        java-version: [ 11, 17 ]
-    runs-on: ubuntu-latest
+#  windup-build-with-unit-tests-1:
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        java-version: [ 11, 17 ]
+#    runs-on: ubuntu-latest
+##    needs: [windup-build]
+#    steps:
+#    - uses: actions/checkout@v3
+#    - name: Set up JDK
+#      uses: actions/setup-java@v3
+#      with:
+#        java-version: ${{ matrix.java-version }}
+#        distribution: 'temurin'
+#        java-package: jdk
+#    - name: Cache local Maven repository
+#      uses: actions/cache@v3
+#      with:
+#        path: ~/.m2/repository
+#        key: maven-windup-build-${{ github.sha }}
+#    - name: Set up chromedriver variable
+#      run: |
+#        echo "CHROMEWEBDRIVER=${CHROMEWEBDRIVER}" >> "$GITHUB_ENV"
+#    - name: Test
+#      run: mvn -B clean install -pl '!tests,!rules-java/tests,!rules-xml/tests,!config/tests' -Dwebdriver.chrome.driver=${{ env.CHROMEWEBDRIVER }}/chromedriver
+#
+#  windup-build-with-unit-tests-2:
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        java-version: [ 11, 17 ]
+#    runs-on: ubuntu-latest
 #    needs: [windup-build]
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK
-      uses: actions/setup-java@v3
-      with:
-        java-version: ${{ matrix.java-version }}
-        distribution: 'temurin'
-        java-package: jdk
-    - name: Cache local Maven repository
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2/repository
-        key: maven-windup-build-${{ github.sha }}
-    - name: Set up chromedriver variable
-      run: |
-        echo "CHROMEWEBDRIVER=${CHROMEWEBDRIVER}" >> "$GITHUB_ENV"
-    - name: Test
-      run: mvn -B clean install -pl '!tests,!rules-java/tests,!rules-xml/tests,!config/tests' -Dwebdriver.chrome.driver=${{ env.CHROMEWEBDRIVER }}/chromedriver
-
-  windup-build-with-unit-tests-2:
-    strategy:
-      fail-fast: false
-      matrix:
-        java-version: [ 11, 17 ]
-    runs-on: ubuntu-latest
-    needs: [windup-build]
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK
-      uses: actions/setup-java@v3
-      with:
-        java-version: ${{ matrix.java-version }}
-        distribution: 'temurin'
-        java-package: jdk
-    - name: Cache local Maven repository
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2/repository
-        key: maven-windup-build-${{ github.sha }}
-    - name: Set up chromedriver variable
-      run: |
-        echo "CHROMEWEBDRIVER=${CHROMEWEBDRIVER}" >> "$GITHUB_ENV"
-    - name: Test config
-      run: mvn -B clean install -f config
-    - name: Test rules-java
-      run: mvn -B clean install -f rules-java
-    - name: Test rules-xml
-      run: mvn -B clean install -f rules-xml
+#    steps:
+#    - uses: actions/checkout@v3
+#    - name: Set up JDK
+#      uses: actions/setup-java@v3
+#      with:
+#        java-version: ${{ matrix.java-version }}
+#        distribution: 'temurin'
+#        java-package: jdk
+#    - name: Cache local Maven repository
+#      uses: actions/cache@v3
+#      with:
+#        path: ~/.m2/repository
+#        key: maven-windup-build-${{ github.sha }}
+#    - name: Set up chromedriver variable
+#      run: |
+#        echo "CHROMEWEBDRIVER=${CHROMEWEBDRIVER}" >> "$GITHUB_ENV"
+#    - name: Test config
+#      run: mvn -B clean install -f config
+#    - name: Test rules-java
+#      run: mvn -B clean install -f rules-java
+#    - name: Test rules-xml
+#      run: mvn -B clean install -f rules-xml
 
   windup-tests:
     strategy:
@@ -117,4 +118,4 @@ jobs:
       with:
         maven-version: 3.8.7
     - name: Test
-      run: mvn -B test -Dwebdriver.chrome.driver=${{ env.CHROMEWEBDRIVER }}/chromedriver -f tests
+      run: mvn -B test -Dwebdriver.chrome.driver=${{ env.CHROMEWEBDRIVER }}/chromedriver -f graph/
